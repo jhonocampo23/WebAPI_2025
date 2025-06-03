@@ -6,9 +6,9 @@ namespace ShoppingAPI_2025.Domain.Interfaces
     {
         Task<IEnumerable<Country>> GetCountriesAsync(); //Una de las tantas firmas de un método!
 
-        Task<Country> CreateCountryAsync(Country country);
-
         Task<Country> GetCountryByIdAsync(Guid id);
+
+        Task<Country> CreateCountryAsync(Country country);
 
         Task<Country> EditCountryAsync(Country country);
 
