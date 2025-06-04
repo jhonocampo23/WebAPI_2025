@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShoppingAPI_2025.DAL;
+using ShoppingAPI_2025.Domain.Interfaces;
+using ShoppingAPI_2025.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,9 @@ builder.Services.AddControllers();
 // Esta es la línea de código que necesito para configurar la conexión a la BD
 builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString
     ("DefaultConnection")));
+
+//Contenedor de dependencias
+builder.Services.AddScoped<ICountryService, CountryService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
